@@ -1,18 +1,17 @@
-import TokamakDOM
+import TokamakShim
+
+
+
 
 struct TokamakApp: App {
     var body: some Scene {
         WindowGroup("Tokamak App") {
-            ContentView()
+            CalculatorView()
         }
     }
 }
 
-struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-    }
-}
+
 
 // @main attribute is not supported in SwiftPM apps.
 // See https://bugs.swift.org/browse/SR-12683 for more details.
