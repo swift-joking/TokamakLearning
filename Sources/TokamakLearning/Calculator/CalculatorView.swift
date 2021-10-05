@@ -6,6 +6,7 @@
 //
 
 import TokamakShim
+import Foundation
 
 /**
  @State修饰的属性属于值类型的属性监听，
@@ -14,18 +15,25 @@ import TokamakShim
 
 struct CalculatorView:View {
     
+    @ObservedObject
+    private var model:CalculatorModel = CalculatorModel()
     @State
-    private var brain:CalculatorBrain = .left("0")
+    private var editingHistory = false
     var body : some View {
         VStack(alignment: .trailing, spacing: 12) {
 //            Spacer()
-            Text(brain.output)
+            Button("操作历史：\(model.history.count)") {
+                self.editingHistory = true
+            }//.sheet(isPresented: self.$editingHistory){
+             //  HistoryView(model: self.model)
+             //}
+            Text(model.brain.output)
                 .font(.system(size: 77))
 //                .minimumScaleFactor(0.5)
                 .padding(.trailing, 24)
 //                .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-            CalculatorButtonPad(brain: self.$brain)
+            CalculatorButtonPad(model: self.model)
                 .padding(.bottom)
 
         }

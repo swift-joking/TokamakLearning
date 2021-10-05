@@ -54,5 +54,9 @@ extension CalculatorButtonItem{
         }
     }
 }
-
+extension CalculatorButtonItem:CustomStringConvertible{
+    var description: String{
+        title
+    }
+}
 extension CalculatorButtonItem:Hashable{}

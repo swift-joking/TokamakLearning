@@ -10,8 +10,7 @@ import TokamakShim
 struct CalculatorButtonRow:View {
     
     let row:[CalculatorButtonItem]
-    @Binding
-    var brain:CalculatorBrain
+    var model:CalculatorModel
 
     var body: some View {
         
@@ -19,7 +18,7 @@ struct CalculatorButtonRow:View {
             ForEach(row, id: \.self) { item in
                 CalculatorButton(title: item.title, size: item.size, backgroundColor: item.backgroundColor) {
                     print(item.title)
-                    self.brain = self.brain.apply(item: item)
+                    self.model.apply(item: item)
                 }
                 .frame(width: item.size.width, height: item.size.height)
                 .cornerRadius(item.size.width * 0.5)
