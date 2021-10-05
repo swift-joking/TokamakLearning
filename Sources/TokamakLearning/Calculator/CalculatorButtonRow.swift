@@ -10,6 +10,7 @@ import TokamakShim
 struct CalculatorButtonRow:View {
     
     let row:[CalculatorButtonItem]
+    @EnvironmentObject
     var model:CalculatorModel
 
     var body: some View {

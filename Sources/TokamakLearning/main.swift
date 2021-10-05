@@ -6,7 +6,7 @@ import TokamakShim
 struct TokamakApp: App {
     var body: some Scene {
         WindowGroup("Tokamak App") {
-            CalculatorView()
+            CalculatorView().environmentObject(CalculatorModel())
         }
     }
 }

@@ -9,7 +9,7 @@ import TokamakShim
 
 struct CalculatorButtonPad:View {
     
-    var model:CalculatorModel
+//    var model:CalculatorModel
     let pad:[[CalculatorButtonItem]] = [
         [.command(.clear),.command(.flip),.command(.percent),.op(.divide)],
         [.digit(7),.digit(8),.digit(9),.op(.multiply)],
@@ -21,7 +21,8 @@ struct CalculatorButtonPad:View {
         VStack(alignment:.trailing, spacing: 8){
             
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(row: row,model: model)
+//                CalculatorButtonRow(row: row,model: model)
+                CalculatorButtonRow(row: row)
             }
 
         }

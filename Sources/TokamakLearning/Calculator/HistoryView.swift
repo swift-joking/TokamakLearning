@@ -9,7 +9,7 @@ import TokamakShim
 
 struct HistoryView:View {
     
-    @ObservedObject
+    @EnvironmentObject
     var model:CalculatorModel
     
     var body: some View{

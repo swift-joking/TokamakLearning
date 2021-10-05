@@ -15,8 +15,8 @@ import Foundation
 
 struct CalculatorView:View {
     
-    @ObservedObject
-    private var model:CalculatorModel = CalculatorModel()
+    @EnvironmentObject
+    private var model:CalculatorModel 
     @State
     private var editingHistory = false
     var body : some View {
@@ -27,13 +27,16 @@ struct CalculatorView:View {
             }//.sheet(isPresented: self.$editingHistory){
              //  HistoryView(model: self.model)
              //}
+            
+            
             Text(model.brain.output)
                 .font(.system(size: 77))
 //                .minimumScaleFactor(0.5)
                 .padding(.trailing, 24)
 //                .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-            CalculatorButtonPad(model: self.model)
+//            CalculatorButtonPad(model: self.model)
+            CalculatorButtonPad()
                 .padding(.bottom)
 
         }
